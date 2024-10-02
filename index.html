@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Student Image</title>
+</head>
+<body>
+    <!--<h2>Enter Roll Number to Get Image</h2>-->
+    <form id="rollNoForm">
+        <label for="rollNo">Roll Number:</label>
+        <input type="text" id="rollNo" name="rollNo" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Placeholder to display the image -->
+    <div id="response-container">
+        <img id="response-image" style="display:none;" alt="Student Photo">
+    </div>
+
+    <script>
+        document.getElementById('rollNoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission from reloading the page
+
+            // Get the roll number from the form input
+            const rollNo = document.getElementById('rollNo').value;
+
+            // Construct the image URL using the roll number
+            const imageUrl = `https://gecgudlavalleruonlinepayments.com/StudentPhotos/${rollNo}.jpg`;
+
+            // Set the image source to the constructed URL
+            const imgElement = document.getElementById('response-image');
+            imgElement.src = imageUrl;
+
+            // Display the image
+            imgElement.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
